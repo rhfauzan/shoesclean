@@ -21,6 +21,7 @@
 <body>
 <body>
     <h1>Shoes Cleaning Service</h1>
+    <a href="logout.php" class="btn-end">Logout</a>
     <h3>Change Photo</h3>
 <div>
 		<form method="POST" action="user_upload.php" enctype="multipart/form-data">

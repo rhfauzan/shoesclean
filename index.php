@@ -51,7 +51,7 @@ if(!isset($_SESSION['login'])){
                     
                 ?>
                 <div class="card">
-                    <a href="booking.php" style="text-decoration:none; color:white;">
+                    <a href="booking.php?id=<?php echo $data['id_paket']?>" style="text-decoration:none; color:white;">
                     <img src="assets/shoes.png" class="img-content">
                     <h2><?php echo $data['nama_paket']; ?></h2>
                     <p><?php echo $data['deskripsi_paket']; ?></p>
@@ -99,11 +99,11 @@ if(!isset($_SESSION['login'])){
                     </a>
                 </div> -->
             </div>
-            <img src="Veterinary-bro.svg" class="img-homepage">
+           
             
         <br>
         
-        <p><a href="logout.php" class="btn-end">Logout</a></p>
+        
         </div>
         
     </div>

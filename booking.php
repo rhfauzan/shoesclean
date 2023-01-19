@@ -41,7 +41,12 @@ if(!isset($_SESSION['login'])){
             <h2 class="title">Price List</h2>
             <div class="container-card">
                 <form method="post" action="create_booking_210032.php">
-                    
+                <?php
+                include "connection.php";
+                $query = "SELECT * FROM paket WHERE id_paket = '$_GET[id]'";
+                $paket = mysqli_query($db_connection,$query);
+                $data = mysqli_fetch_assoc($paket);
+                ?>
                       <div class="user-details">
                         <div class="input-box">
                           <span class="details">Nama</span>
@@ -57,18 +62,13 @@ if(!isset($_SESSION['login'])){
                         </div>
               
                         <div class="input-box">
-                          <span class="details">Tanggal</span>
-                          <input type="date" placeholder="Masukan No.Telephone" name="tanggal_210032" required>
-                        </div>
-              
-                        <div class="input-box">
-                          <span class="details">Destinasi</span>
-                          <input type="text" placeholder="Masukan Destinasi" name="id_wisata_210032"value="<?=$data['nama_tempat_210032']?>" required>
+                          <span class="details">Paket</span>
+                          <input type="text" placeholder="Masukan Destinasi" name="id_paket"value="<?=$data['nama_paket']?>" required>
                           </input>  
                         </div>
                         <div class="input-box">
                           <span class="details">Harga</span>
-                          <input type="number" placeholder="Harga Tiket" id="harga" name="id_wisata_210032"value="<?=$data['harga_tiket_210032']?>" required>
+                          <input type="text" placeholder="Harga Paket" id="harga" name="id_paket"value="<?=$data['harga_paket']?>" required>
                         </div>
                         <div class="input-box">
                           <span  class="details">Jumlah Tiket</span>
@@ -83,7 +83,7 @@ if(!isset($_SESSION['login'])){
                       
                       <div class="button">
                         <input type="submit" name="save" value="Pesan">
-                        <input type="hidden" name="id_wisata_210032" value="<?=$data['id_wisata_210032']?>">
+                        <input type="hidden" name="id_paket" value="<?=$data['id_paket']?>">
                       </div>
                     </form>
             </div>
