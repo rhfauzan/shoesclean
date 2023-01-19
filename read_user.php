@@ -53,8 +53,8 @@
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $data['username']; ?></td>
                     <td>
-                        <img src="upload/user/<?php echo $data['photo']; ?>" width="50" height="50" ><br>
-                        <a href="photo_user.php?id=<?=$data['userid']?>"> Change Photo</a>
+                        <img src="upload/user/<?php echo $data['userphoto']; ?>" width="50" height="50" ><br>
+                        <a href="change_photo.php?id=<?=$data['userid']?>"> Change Photo</a>
                     </td>
                     <!-- <td><?php echo $data['password']; ?></td> -->
                     <td><?php echo $data['usertype']; ?></td>

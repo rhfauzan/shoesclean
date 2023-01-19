@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <td class="add-td">Phone</td>
-                        <td><input type="text" name="phone_pellanggan" required></td>
+                        <td><input type="text" name="phone_pelanggan" required></td>
                     </tr>
                     <tr>
                         <td></td>

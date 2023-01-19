@@ -1,12 +1,11 @@
 <?php
-
     if(isset($_POST['save'])){
         //Call Connection php mysql
         include "connection.php";
     
         // sql query INSERT INTO VALUES
-        $query = "INSERT INTO pelanggan (nama_pelanggan, alamat_pelanggan, phone_pelanggan)
-        VALUES ('$_POST[nama_pelanggan]','$_POST[alamat_pelanggan]','$_POST[phone_pelanggan]'";
+        $query = "INSERT INTO pelanggan (nama_pelanggan, photo_sepatu, alamat_pelanggan, phone_pelanggan)
+        VALUES ('$_POST[nama_pelanggan]','$_POST[photo_sepatu]','$_POST[alamat_pelanggan]','$_POST[phone_pelanggan]'";
     
         //run query
         $create = mysqli_query($db_connection, $query);

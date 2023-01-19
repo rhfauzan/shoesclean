@@ -11,7 +11,7 @@
     <title>Shoes Cleaning Service</title>
     <link rel="stylesheet" href="style1.css">
 </head>
-<style>
+<!-- <style>
     @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@400;700;900&display=swap');
     
     *{
@@ -146,7 +146,7 @@
     }
 
     
-</style>
+</style> -->
 
 <body>
     <div class="container">
@@ -162,7 +162,7 @@
                 $user = mysqli_query($db_connection, $query); 
                 $data = mysqli_fetch_assoc($user);
                 ?>
-                <a href="change_photo_210032.php">
+                <a href="change_photo.php">
                     <img src="upload/user/<?= $data['photo']; ?>" class="photo">
                 </a>
                     <div class="header-content">
@@ -175,10 +175,10 @@
             <br>
             <div id="content" class="content">
                 <div class="card">
-                    <a href="read_pelanggan.php" style="text-decoration:none; color=white;">
+                    <a href="read_List.php" style="text-decoration:none; color=white;">
                     <img src="img/sport-shoes.png" class="img-content">
-                    <h2>List Pelanggan</h2>
-                    <p>Daftar data sepatu yang dicuci</p>
+                    <h2>List Harga</h2>
+                    <p>Daftar Harga Cuci Sepatu</p>
                     </a>
                 </div>
 
@@ -190,7 +190,15 @@
                     </a>
                 </div>
 
-                <?php if($_SESSION['usertype']=='Manager') { ?>
+                
+                <div id="content" class="content">
+                    <div class="card">
+                        <a href="read_pelanggan.php" style="text-decoration:none; color=white;">
+                        <img src="img/sport-shoes.png" class="img-content">
+                        <h2>List Pelanggan</h2>
+                        <p>Daftar data sepatu yang dicuci</p>
+                        </a>
+                </div>
                 <div class="card">
                     <a href="read_user.php" style="text-decoration:none">
                     <img src="assets/user.png" class="img-content">
@@ -198,7 +206,8 @@
                     <p>Daftar data pengguna</p>
                     </a>
                 </div>
-                <?php }?>
+                <!-- <?php if($_SESSION['usertype']=='Manager') { ?> -->
+                <!-- <?php }?> -->
                 
             </div>
             <img src="Veterinary-bro.svg" class="img-homepage">

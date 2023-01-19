@@ -4,7 +4,7 @@
 		include "connection.php";
 		
 		//query select
-		$query = "SELECT * FROM users WHERE userid= '$_SESSION[userid]'";
+		$query = "SELECT * FROM user WHERE userid= '$_POST[userid]'";
 		
 		//run query
 		$user=mysqli_query($db_connection,$query);
@@ -27,7 +27,7 @@
         <table>
             <tr>
                 <td></td>
-                <td><img src="upload/user/<?= $data['photo'] ?>" width="30%"></td>
+                <td><img src="upload/user/<?= $data['userphoto'] ?>" width="30%"></td>
             </tr>
             <tr>
                 <td>New Photo</td>

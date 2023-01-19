@@ -2,10 +2,10 @@
 
 <html>
 <head>
-    <title>Shoes Cleaning Service/title>
+    <title>Shoes Cleaning Service</title>
 </head>
 <body>
-    <h1>Shoes Cleaning Service/h1>
+    <h1>Shoes Cleaning Service</h1>
     <h3> Form Edit Pegawai </h3>
     <?php
         include "connection.php";

@@ -2,48 +2,48 @@
 <html>
 <head>
     <tittle></tittle>
-    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+<link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <div class=container>
-        <div class="header">
-            <h1 class="logo">Pet Clinic Selfandy</h1>
-        </div>
+    <!-- <h3>Login</h3> -->
+    <div class="container">
+	<div class="screen">
+		<div class="screen__content">
+		<h1 class="logo">RH Clinic Pet</h1><hr>
+			<form class="login" method="post" action="login.php">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" name="username" placeholder="User name">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" name="password" id="pass" placeholder="Password">
+				</div>
+				<button class="button login__submit" type="submit" name="login">
+					<span class="button__text"  >Log In</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<!-- <h3>log in via</h3> -->
+				<div class="social-icons">
+					<!-- <a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a> -->
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	</div>
+</div>
 
-        <div class="container-content">
-            <h3>Form Login</h3>
-            <form method="post" action="login.php">
-            <table class="loginBox">
-                <tr>
-                    <td>Username</td>
-                    <td>: <input type="text" name="username" required /></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>: <input type ="password" name="password" id="pass" required /></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;<input type="checkbox" onclick="show()"> Show Password
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;
-                        <input type="submit" name="login" value="LOGIN" />
-                        <input type="reset" name="reset" value="RESET" />
-
-                    </td>
-                </tr>   
-                 
-                </table>
-                </form>
-        </div>
-        
-        
-    </div>
-    
-    
     <script>
         function show() {
             var x = document.getElementById("pass");

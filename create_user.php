@@ -8,7 +8,7 @@ if(isset($_POST['save'])){
     $password = password_hash($_POST['usertype'], PASSWORD_DEFAULT);
 
     // sql query INSERT INTO VALUES
-    $query = "INSERT INTO user(username, password, usertype, fullname)
+    $query = "INSERT INTO user(username, password_user, usertype, fullname)
     VALUES ('$_POST[username]',' $password',' $_POST[usertype]',' $_POST[fullname]')";
 
     //run query

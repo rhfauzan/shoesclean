@@ -19,6 +19,7 @@ if(isset($_POST['login'])) { //check post variable
 		$_SESSION['password']=$user['password'];
 		$_SESSION['usertype']=$user['usertype'];
 		$_SESSION['fullname']=$user['fullname'];
+		// $_SESSION['photo']=$user['user_photo'];
 		
 		echo "<script>alert('login success !');window.location.replace('index.php');</script>";
 		} else {
