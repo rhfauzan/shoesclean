@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['upload'])) {
 	include "connection.php";
 	
@@ -10,7 +11,10 @@ if(isset($_POST['upload'])) {
 		$upload=mysqli_query($db_connection,$query);
 		
 		if($upload) {
-			if($_POST['userphoto'] !== 'default.png') unlink($folder . $_POST['userphoto']);
+			$_SESSION['photo'] = $photo;
+			if($_POST['photo'] !== 'default.png'){
+				unlink($folder . $_POST['photo']);
+			}
 			echo "<script>alert('Change Photo Success !');window.location.replace('index.php');</script>";
 		} else {
 			echo "<script>alert('Change Photo Failed !');window.location.replace('change_photo.php?id=$_POST[userid]');</script>";

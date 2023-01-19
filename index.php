@@ -208,7 +208,6 @@ if(!isset($_SESSION['login'])){
                 <?php } ?>
                 
             </div>
-            <img src="Veterinary-bro.svg" class="img-homepage">
             
         <br>
         

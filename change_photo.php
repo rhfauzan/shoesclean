@@ -4,13 +4,13 @@
 		include "connection.php";
 		
 		//query select
-		$query = "SELECT * FROM user WHERE userid= '$_POST[userid]'";
+		// $query = "SELECT * FROM user WHERE userid = '$_SESSION[user_photo]'";
 		
-		//run query
-		$user=mysqli_query($db_connection,$query);
+		// //run query
+		// $user=mysqli_query($db_connection,$query);
 		
-		//extract data
-		$data=mysqli_fetch_assoc($user);
+		// //extract data
+		// $data=mysqli_fetch_assoc($user);
 	?>
 <!doctype html>
 <html>
@@ -27,7 +27,7 @@
         <table>
             <tr>
                 <td></td>
-                <td><img src="upload/user/<?= $data['userphoto'] ?>" width="30%"></td>
+                <td><img src="upload/user/<?= $_SESSION['photo'] ?>" width="30%"></td>
             </tr>
             <tr>
                 <td>New Photo</td>
@@ -37,8 +37,8 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;
                     <input type="submit" name="upload" value="upload">
-                    <input type="hidden" name="photo" value="<?= $data['photo'] ?>" />
-                    <input type="hidden" name="userid" value="<?= $data['userid'] ?>" />
+                    <input type="hidden" name="photo" value="<?= $_SESSION['photo'] ?>" />
+                    <input type="hidden" name="userid" value="<?= $_SESSION['userid'] ?>" />
                 </td>
             </tr>
         </table>
