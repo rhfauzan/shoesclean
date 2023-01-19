@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
-    echo "<script>alert('please login first ! '); window.location.replace('form_login_210032.php');</script>";
+    echo "<script>alert('please login first ! '); window.location.replace('form_login.php');</script>";
 }
 ?>
 
@@ -51,7 +51,7 @@ if(!isset($_SESSION['login'])){
                     
                 ?>
                 <div class="card">
-                    <a href="read_pet_210032.php" style="text-decoration:none; color:white;">
+                    <a href="booking.php" style="text-decoration:none; color:white;">
                     <img src="assets/shoes.png" class="img-content">
                     <h2><?php echo $data['nama_paket']; ?></h2>
                     <p><?php echo $data['deskripsi_paket']; ?></p>
