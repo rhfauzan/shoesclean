@@ -24,6 +24,10 @@
 				<button class="button login__submit" type="submit" name="login">
 					<span class="button__text"  >Log In</span>
 					<i class="button__icon fas fa-chevron-right"></i>
+				</button>
+				<button class="button" type="submit" name="Register">
+					<a href="add_user.php" class="btn-end">Register</a>
+					<i class="button__icon fas fa-chevron-right"></i>
 				</button>				
 			</form>
 			<div class="social-login">

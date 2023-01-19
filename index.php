@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-// session_start();
-// if(!isset($_SESSION['login'])){
-//     echo "<script>alert('please login first ! '); window.location.replace('form_login_210032.php');</script>";
-// }
+session_start();
+if(!isset($_SESSION['login'])){
+    echo "<script>alert('please login first ! '); window.location.replace('form_login_210032.php');</script>";
+}
 ?>
 <html lang="en">
 <head>
@@ -158,13 +158,13 @@
             <div class="wrapper-header">
                 <?php
                 include "connection.php";
-                $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
+                $query = "SELECT * FROM user WHERE userid = '$_SESSION[userid]'";
                 $user = mysqli_query($db_connection, $query); 
                 $data = mysqli_fetch_assoc($user);
                 ?>
                 <a href="change_photo.php">
-                    <img src="upload/user/<?= $data['photo']; ?>" class="photo">
-                </a>
+                    <img src="upload/user/<?= $data['userphoto']; ?>" class="userphoto">
+                    </a>
                     <div class="header-content">
                         <h3>Welcome to the Shoes Clean <?=$_SESSION['fullname'];?></h3>
                         <h3 class="usertype">you are login as <?=$_SESSION['usertype'];?></h3>
@@ -175,13 +175,14 @@
             <br>
             <div id="content" class="content">
                 <div class="card">
-                    <a href="read_List.php" style="text-decoration:none; color=white;">
+                    <a href="paket.php" style="text-decoration:none; color=white;">
                     <img src="img/sport-shoes.png" class="img-content">
                     <h2>List Harga</h2>
                     <p>Daftar Harga Cuci Sepatu</p>
                     </a>
                 </div>
 
+                <?php if ($_SESSION['usertype'] == 'Manager') { ?>
                 <div class="card">
                     <a href="read_pegawai.php" style="text-decoration:none">
                     <img src="img/user.png" class="img-content">
@@ -189,8 +190,6 @@
                     <p>Daftar data Pegawai</p>
                     </a>
                 </div>
-
-                
                 <div id="content" class="content">
                     <div class="card">
                         <a href="read_pelanggan.php" style="text-decoration:none; color=white;">
@@ -206,8 +205,7 @@
                     <p>Daftar data pengguna</p>
                     </a>
                 </div>
-                <!-- <?php if($_SESSION['usertype']=='Manager') { ?> -->
-                <!-- <?php }?> -->
+                <?php } ?>
                 
             </div>
             <img src="Veterinary-bro.svg" class="img-homepage">

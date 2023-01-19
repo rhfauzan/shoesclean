@@ -31,7 +31,7 @@
 					</tr>
 					<!-- <tr>
 						<td>Password</td>
-						<td><input type="password" name="password_210032" required></td>
+						<td><input type="password" name="password_user" required></td>
 					</tr> -->
 					<tr>
 						<td>Usertype</td>
@@ -54,7 +54,7 @@
 				</table>	
 			</form>
 			<br>
-			<p class="button"><a href="read_user_210032.php" class="btn-end" >Back</a></p>
+			<p class="button"><a href="form_login.php" class="btn-end" >Back</a></p>
 		</div>
 		
 	</div>

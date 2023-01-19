@@ -20,10 +20,8 @@
             <table border="1" cellspacing="0" cellpadding="4">
                 <tr class="theader">
                     <th>No</th>
-                    <th>Merk</th>
-                    <th>Type</th>
-                    <th>Nama Pemilik</th>
-                    <th>Photo</th>
+                    <th>Nama Pelanggan/th>
+                    <th>Photo Sepatu</th>
                     <th>Address</th>
                     <th>Phone</th>
                     <th colspan="2">Action</th>

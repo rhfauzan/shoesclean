@@ -26,7 +26,7 @@
 
         <div class="container-content">
             <h3 style="padding-bottom: 10px; padding-left:10px;">Users List</h3>
-            <p><a href="add_user.php" class="btn-end">Add New User</a></p>
+            <!-- <p><a href="add_user.php" class="btn-end">Add New User</a></p> -->
             <br>
             <table class="table-content" >
                 <tr>

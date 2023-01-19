@@ -46,6 +46,10 @@
                         </td>
                     </tr> -->
                     <tr>
+                    <td class="add-td">Photo Sepatus</td>
+                        <td><input type="file" name="photo_sepatu" required></td>
+                    </tr>
+                    <tr>
                         <td class="add-td">Address</td>
                         <td><textarea name="alamat_pelanggan" required></textarea></td>
                     </tr>

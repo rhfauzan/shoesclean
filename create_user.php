@@ -8,8 +8,8 @@ if(isset($_POST['save'])){
     $password = password_hash($_POST['usertype'], PASSWORD_DEFAULT);
 
     // sql query INSERT INTO VALUES
-    $query = "INSERT INTO user(username, password_user, usertype, fullname)
-    VALUES ('$_POST[username]',' $password',' $_POST[usertype]',' $_POST[fullname]')";
+    $query = "INSERT INTO user (username, password_user, usertype, fullname)
+    VALUES ('$_POST[username]', '$password',' $_POST[usertype]',' $_POST[fullname]')";
 
     //run query
     $create = mysqli_query($db_connection, $query);
@@ -25,4 +25,4 @@ if(isset($_POST['save'])){
 }
 ?>
 <!-- <p><a href="read_pet.php">Back To Pets List</a></p> -->
-<script>window.location.replace("read_user.php");</script>
+<script>window.location.replace("form_login.php");</script>
