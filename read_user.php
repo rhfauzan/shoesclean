@@ -36,7 +36,7 @@
                     <!-- <th>Password</th> -->
                     <th>UserType</th>
                     <th>FullName</th>
-                    <th colspan="3">Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 <?php
                     //call connection
@@ -61,7 +61,7 @@
                     <td><?php echo $data['fullname']; ?></td>
                     <td><p><a href="edit_user.php?id=<?=$data['userid']?>" class="btn-end">Edit User</a></p></td>
                     <td><p><a href="delete_user.php?id=<?=$data['userid']?>"onclick= "return confirm('Are you sure?')" class="btn-del">Delete User</a></p></td>
-                    <td><p><a href="reset_pw.php?id=<?=$data['userid'];?>&type=<?=$data['usertype'];?>" onclick="return confirm('Are you sure reset the password?')" class="btn-end">Reset Password</a></p></td>
+                    <!-- <td><p><a href="reset_pw.php?id=<?= $data['userid'];?>&type=<?=$data['usertype'];?>" onclick="return confirm('Are you sure reset the password?')" class="btn-end">Reset Password</a></p></td> -->
                 </tr>
                 <?php endforeach; ?>
             </table>

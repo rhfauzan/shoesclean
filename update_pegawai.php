@@ -38,7 +38,7 @@
 //     } else {
 //         echo "<script>alert('Upload Photo Failed !');window.location.replace('read_doctors_210032.php?id=$_POST[id_pegawai]');</script>";
 //     }
-}
+
 ?>
    <!--<p><a href="read_doctor_210036.php">BACK TO DOCTOR LIST</p> -->>
    <script>window.location.replace("read_pegawai.php");</script>

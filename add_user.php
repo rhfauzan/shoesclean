@@ -36,8 +36,8 @@
 					<tr>
 						<td>Usertype</td>
 						<td>
-							<input type="radio" name="usertype" value="Staff" required>Staff
-							<input type="radio" name="usertype" value="Manager" required>Manager
+							<input type="radio" name="usertype" value="Pelanggan" required>Pelanggan
+							<input type="radio" name="usertype" value="Admin" required>Admin
 						</td>
 					</tr>
 					<tr>

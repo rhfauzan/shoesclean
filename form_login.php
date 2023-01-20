@@ -11,7 +11,7 @@
     <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-		<h1 class="logo">RH Clinic Pet</h1><hr>
+		<h1 class="logo">Shoes Cleaning Service</h1><hr>
 			<form class="login" method="post" action="login.php">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>

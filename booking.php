@@ -21,7 +21,9 @@ if(!isset($_SESSION['login'])){
                     <ul>
                         <li class="list"><a href="index.php">Home</a></li>
                         <li class="list"><a href="pricelist.php">Price List</a></li>
-                        <li class="list"><a href="#">Booking</a></li>
+                        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <?php } ?>
                     </ul>
                     <?php
                     include "connection.php";
@@ -84,7 +86,7 @@ if(!isset($_SESSION['login'])){
                         </div>
                         <div class="input-box">
                           <span class="details">Harga</span>
-                          <input type="text" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" required>
+                          <input type="number" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" required>
                         </div>
                         
                       </div>
