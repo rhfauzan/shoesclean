@@ -12,19 +12,46 @@
 		// //extract data
 		// $data=mysqli_fetch_assoc($user);
 	?>
-<!doctype html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Shoes Cleaning Service</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shclean.co</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<body>
-    <h1>Shoes Cleaning Service</h1>
-    <a href="logout.php" class="btn-end">Logout</a>
-    <h3>Change Photo</h3>
-<div>
-		<form method="POST" action="user_upload.php" enctype="multipart/form-data">
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                    <img class="logo" src="assets/logo.png">
+                    <ul>
+                        <li class="list"><a href="index.php">Home</a></li>
+                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                    </ul>
+                    <?php
+                    include "connection.php";
+                    $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
+                    $user = mysqli_query($db_connection, $query); 
+                    $data = mysqli_fetch_assoc($user);
+                    ?>
+                    <a href="change_photo.php">
+                        <img class="profile" src="upload/user/<?= $data['userphoto']; ?>">
+                    </a>
+                    
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 class="title">Profile</h1>
+            <br>
+            <h2 class="title">Change Photo</h2>
+            <div class="container-card">
+            <a href="logout.php" class="btn-end">Logout</a>
+            <form method="POST" action="user_upload.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td></td>
@@ -44,7 +71,29 @@
             </tr>
         </table>
     </form>
-    <p><a href="index.php">CANCEL</a></p>
-</div>
+            </div>
+           
+            
+        <br>
+        
+        
+        </div>
+        
+    </div>
+
+    <footer>
+            <img class="logo-footer" src="assets/logo2.png">
+        
+            
+        <div class="follow">
+            <h1>FOLLOW US</h1>
+            <div class="sosmed">
+                <img src="assets/whatsapp (1).png" class="img-footer">
+                <img src="assets/instagram.png" class="img-footer">
+                <img src="assets/youtube (1).png" class="img-footer">
+            </div>
+            
+        </div>
+    </footer>
 </body>
 </html>
