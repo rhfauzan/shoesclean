@@ -112,6 +112,7 @@ html{
     grid-gap: 1rem;
     padding: 50px;
     justify-content: center;
+    gap: 120px;
 }
 
 .card{
