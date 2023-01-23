@@ -53,7 +53,10 @@
     </tr>
     <tr><th colspan="6" align="right">Total : Rp. <?=number_format($total, 0, ".", ".");?></th></tr>
     </table> 
-    <p><a href="confirmasi.php">Back to Menu</a></p>
+    <p><a href="print.php?id_pelanggan=<?=$data[id]?>">print</a></p>
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>
