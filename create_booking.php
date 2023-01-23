@@ -41,5 +41,5 @@ if(isset($_POST['save'])){
     
     }
     ?>
-    <!-- <p><a href="read_pet_210032.php">Back To Pets List</a></p> -->
+   
     <script>window.location.replace("facture.php");</script>

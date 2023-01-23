@@ -16,10 +16,10 @@
 
         $data1=mysqli_fetch_assoc($id);
 
-     $queryjual="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.id_paket, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai, p.konfirmasi FROM paket AS pk
+     $query="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.id_paket, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai, p.konfirmasi FROM paket AS pk
      INNER JOIN pelanggan AS p ON pk.id_paket=p.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai GRoUP BY p.id_pelanggan";
-     $jual =mysqli_query($db_connection,$queryjual);
-     $data=mysqli_fetch_assoc($jual);
+     $faktur =mysqli_query($db_connection,$query);
+     $data=mysqli_fetch_assoc($faktur);
     ?>
     
     <p>No. Faktur               : <?=$data1['id_pelanggan']?></p>
@@ -34,7 +34,7 @@
     
     <table border="1">
         <tr>
-            <!-- <th>No</th> -->
+            <th>No</th>
             <th>Kode Paket</th>
             <th>Nama Paket</th>
             <th>Harga</th>
@@ -45,7 +45,7 @@
             $total=$total+$data['harga_paket']
     ?>
     <tr>
-        <!-- <td><?=$i++?></td> -->
+        <td><?=$i++?></td>
         <td align="center"><?=$data['id_paket']?></td>
         <td><?=$data['nama_paket']?></td>
         <td><?="Rp. " . number_format($data['harga_paket'], 0, ".", ".");?> </td>
@@ -54,11 +54,10 @@
     <tr><th colspan="6" align="right">Total : Rp. <?=number_format($total, 0, ".", ".");?></th></tr>
     </table> 
     <br>
-    <div>
-
-        <a href="print.php?id_pelanggan=<?=$data[id]?>">print pdf</a>
-    </div>
-    
+    <!-- <a href="print.php">print pdf</a> -->
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>
