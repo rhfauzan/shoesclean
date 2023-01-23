@@ -54,9 +54,9 @@
     <tr><th colspan="6" align="right">Total : Rp. <?=number_format($total, 0, ".", ".");?></th></tr>
     </table> 
     <p><a href="print.php?id_pelanggan=<?=$data[id]?>">print</a></p>
-    <script>
+    <!-- <script>
         window.print();
-    </script>
+    </script> -->
 </body>
 
 </html>
