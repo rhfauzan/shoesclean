@@ -20,8 +20,10 @@ if(!isset($_SESSION['login'])){
                     <img class="logo" src="assets/logo.png">
                     <ul>
                         <li class="list"><a href="index.php">Home</a></li>
-                        <li class="list"><a href="#">Price List</a></li>
-                        <li class="list"><a href="#">Booking</a></li>
+                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <?php } ?>
                     </ul>
                     <?php
                     include "connection.php";
@@ -36,11 +38,11 @@ if(!isset($_SESSION['login'])){
         </div>
 
         <div class="content">
-            <h1 class="title">Home</h1>
+            <h1 class="title">price list</h1>
             <br>
             <h2 class="title">Price List</h2>
             <div class="container-card">
-                <form method="post" action="create_booking_210032.php">
+                <form method="post" action="create_booking.php" enctype="multipart/form-data">
                 <?php
                 include "connection.php";
                 $query = "SELECT * FROM paket WHERE id_paket = '$_GET[id]'";
@@ -50,39 +52,48 @@ if(!isset($_SESSION['login'])){
                       <div class="user-details">
                         <div class="input-box">
                           <span class="details">Nama</span>
-                          <input type="text" placeholder="Masukan Nama" name="nama_210032" required>
+                          <input type="text" placeholder="Masukan Nama" name="nama_pelanggan" required>
                         </div>
                         <div class="input-box">
-                          <span class="details">Email</span>
-                          <input type="text" placeholder="Masukan Email" name="email_210032" required>
+                          <span class="details">Alamat</span>
+                          <input type="text" placeholder="Masukan Alamat" name="alamat_pelanggan" required>
                         </div>
                         <div class="input-box">
                           <span class="details">No.Telephone</span>
-                          <input type="number" placeholder="Masukan No.Telephone" name="no_tlp_210032" required>
+                          <input type="number" placeholder="Masukan No.Telephone" name="phone_pelanggan" required>
                         </div>
-              
+                        <div class="input-box">
+                          <span class="details">Merk Sepatu</span>
+                          <input type="text" placeholder="Masukan Merk Sepatu" name="merk_sepatu" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Type Sepatu</span>
+                            <select name="type_sepatu" required>
+                                <option value="">Choose</option>
+                                <option value="Sneakers">Sneakers</option>
+                                <option value="Leathers">Leathers</option>
+                                <option value="Sports">Sports</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Foto Sepatu</span>
+                          <input type="file" name="photo_sepatu" required>
+                        </div>
                         <div class="input-box">
                           <span class="details">Paket</span>
-                          <input type="text" placeholder="Masukan Destinasi" name="id_paket"value="<?=$data['nama_paket']?>" required>
+                          <input type="text" placeholder="Masukan Destinasi" name="nama_paket"value="<?=$data['nama_paket']?>" readonly>
                           </input>  
                         </div>
                         <div class="input-box">
                           <span class="details">Harga</span>
-                          <input type="text" placeholder="Harga Paket" id="harga" name="id_paket"value="<?=$data['harga_paket']?>" required>
-                        </div>
-                        <div class="input-box">
-                          <span  class="details">Jumlah Tiket</span>
-                          <input type="number" placeholder="Masukan Jumlah Tiket" id="jumlah" name="jumlah_tiket_210032" required onchange=(hitung());>
-                        </div>
-                        <div class="input-box">
-                          <span class="details">Total harga</span>
-                          <input type="text" placeholder="Total Harga" id="total" name="total_harga_210032" required>
+                          <input type="number" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" readonly>
                         </div>
                         
                       </div>
                       
                       <div class="button">
                         <input type="submit" name="save" value="Pesan">
+                        <input type="hidden" name="photo" value="<?= $_SESSION['photo'] ?>" />
                         <input type="hidden" name="id_paket" value="<?=$data['id_paket']?>">
                       </div>
                     </form>

@@ -9,7 +9,7 @@ if(isset($_POST['save'])){
 
     // sql query INSERT INTO VALUES
     $query = "INSERT INTO user (username, password_user, usertype, fullname)
-    VALUES ('$_POST[username]', '$password',' $_POST[usertype]',' $_POST[fullname]')";
+    VALUES ('$_POST[username]', '$password','$_POST[usertype]','$_POST[fullname]')";
 
     //run query
     $create = mysqli_query($db_connection, $query);

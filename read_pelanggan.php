@@ -1,27 +1,61 @@
-<?php 
-//     session_start();
-//     if(!isset($_SESSION['login'])) {
-// 	    echo "<script>alert('Please Login First !');window.location.replace('form_login_210066.php');</script>";
-// }
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    echo "<script>alert('please login first ! '); window.location.replace('form_login.php');</script>";
+}
 ?>
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Shoes Cleaning Service</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shclean.co</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                    <img class="logo" src="assets/logo.png">
+                    <ul>
+                        <li class="list"><a href="index.php">Home</a></li>
+                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <?php } ?>
+                    </ul>
+                    <?php
+                    include "connection.php";
+                    $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
+                    $user = mysqli_query($db_connection, $query); 
+                    $data = mysqli_fetch_assoc($user);
+                    ?>
+                    <a href="change_photo.php">
+                        <img class="profile" src="upload/user/<?= $data['userphoto']; ?>">
+                    </a>
+                    
+            </div>
+        </div>
 
-<body class="bg-img" style="background-image: url(img/pets.jpg);">
-        <div class="med">
-            <h3>List Pelanggan</h3>
-            <button class="action-btn"><a href="add_Pelanggan.php">Add New Pelanggan</a></button>
-            <table border="1" cellspacing="0" cellpadding="4">
+        <div class="content">
+            <h1 class="title">Home</h1>
+            <br>
+
+        <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+        <div class="container-card-c">
+        <h2 class="title-back"><a href="index.php">Back</a></h2>
+        <table class="table-content">
                 <tr class="theader">
                     <th>No</th>
-                    <th>Nama Pelanggan/th>
+                    <th>Nama Pelanggan</th>
+                    <th>Merk Sepatu</th>
+                    <th>Type Sepatu</th>
                     <th>Photo Sepatu</th>
+                    <th>Nama Paket</th>
+                    <th>Harga Paket</th>
+                    <th>Nama Pegawai</th>
                     <th>Address</th>
                     <th>Phone</th>
                     <th colspan="2">Action</th>
@@ -30,21 +64,26 @@
             //call connection
             include "connection.php";
             //make a sql query
-            $query = "SELECT * FROM pelanggan";
+            $query = "SELECT * FROM pelanggan AS p INNER JOIN paket AS pk ON p.id_paket=pk.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai GROUP BY p.id_pelanggan";
             //run query
-            $pets = mysqli_query($db_connection, $query);
+            $pelanggan = mysqli_query($db_connection, $query);
 
             $i=1;
-            foreach ($pets as $data) :
+            foreach ($pelanggan as $data) :
         ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
-                    <td align="center"><a
-                            href="service_pelanggan.php?pet_id=<?=$data['id_pelanggan']?>"><?php echo $data['nama_pelanggan']; ?></a>
+                    <td align="center">
+                           <?=$data['nama_pelanggan']; ?>
                     </td>
-                    <td><button class="action-btn"><img src="upload/pelanggan/<?=$data['photo_sepatu']; ?>" widht="50" height="50"><br>
+                    <td><?=  $data['merk_sepatu']; ?></td>
+                    <td><?=  $data['type_sepatu']; ?></td>
+                    <td><button class="action-btn"><img src="upload/pelanggan/<?=$data['photo_sepatu']; ?>" widht="50" height="50" style="border-radius: 50%;"><br>
                     <a href="photo_sepatu.php?id=<?=$data['id_pelanggan']?>">Change photo</a>
-                </td>
+                    </td>
+                    <td><?=  $data['nama_paket']; ?></td>
+                    <td><?=  $data['harga_paket']; ?></td>
+                    <td><?=  $data['nama_pegawai']; ?></td>
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
                     <td><button class="action-btn">
@@ -57,8 +96,32 @@
                 </tr>
                 <?php endforeach; ?>
             </table>
-            <button class="action-btn"><a href="index.php">Menu</a></button>
+            </div>
+            <?php } ?>
+           
 
+           
+            
+        <br>
+        
+        
+        </div>
+        
+    </div>
+
+    <footer>
+            <img class="logo-footer" src="assets/logo2.png">
+        
+            
+        <div class="follow">
+            <h1>FOLLOW US</h1>
+            <div class="sosmed">
+                <img src="assets/whatsapp (1).png" class="img-footer">
+                <img src="assets/instagram.png" class="img-footer">
+                <img src="assets/youtube (1).png" class="img-footer">
+            </div>
+            
+        </div>
+    </footer>
 </body>
-
 </html>

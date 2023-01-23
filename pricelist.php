@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
@@ -22,7 +21,7 @@ if(!isset($_SESSION['login'])){
                     <img class="logo" src="assets/logo.png">
                     <ul>
                         <li class="list"><a href="index.php">Home</a></li>
-                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <li class="list"><a href="#">Price List</a></li>
                         <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
                         <li class="list"><a href="booking.php">Booking</a></li>
                         <?php } ?>
@@ -41,46 +40,35 @@ if(!isset($_SESSION['login'])){
         </div>
 
         <div class="content">
-            <h1 class="title">Home</h1>
+            <h1 class="title">Price list</h1>
             <br>
+            <h2 class="title">Price List</h2>
+            <div class="container-card">
+                <?php
+                include "connection.php";
+                $query = "SELECT * FROM paket";
+                $paket = mysqli_query($db_connection, $query); 
+                $i=1;
+                foreach ($paket as $data):
+                    
+                ?>
+                <div class="card">
+                    <a href="booking.php?id=<?php echo $data['id_paket']?>" style="text-decoration:none; color:white;">
+                    <img src="assets/shoes.png" class="img-content">
+                    <h2><?php echo $data['nama_paket']; ?></h2>
+                    <p><?php echo $data['deskripsi_paket']; ?></p>
+                    <p>Rp. <?php echo $data['harga_paket']; ?></p>
+                    </a>
+                    <a class="btn-price" href="booking.php?id=<?php echo $data['id_paket']?>">
+                        <img class="arrow-price" src="assets/arrow-right.svg" alt="">
+                    </a>
+                    <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+                    <a href="delete_paket.php?id=<?=$data['id_paket']?>"onclick= "return confirm('Are you sure?')" class="btn-del">Delete</a>
+                    <?php } ?>
+                </div>
+                <?php endforeach;?> 
 
-        <?php if ($_SESSION['usertype'] == 'Admin') { ?>
-        <div class="container-card">
-        <h2 class="title-back"><a href="index.php">Back</a></h2>
-        <form method="post" action="create_pegawai.php">
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td><input type="text" name="nama_pegawai" required></td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td>
-                            <input type="radio" name="gender_pegawai" value="Male" required> Male 
-                            <input type="radio" name="gender_pegawai" value="Female" required> Female 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td><textarea name="alamat_pegawai" required></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>Phone</td>
-                        <td><input type="number" name="phone_pegawai" required></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" name="save" value="SAVE">
-                            <input type="reset" name="reset" value="RESET">
-                        </td>
-                    </tr>
-                </table>
-            </form>
             </div>
-            <?php } ?>
-           
-
            
             
         <br>

@@ -1,48 +1,53 @@
-<!DOCTYPE html>
 <?php
-// session_start();
-// if(!isset($_SESSION['login'])){
-//     echo "<script>alert('please login first ! '); window.location.replace('form_login_210032.php');</script>";
-// }
+session_start();
+if(!isset($_SESSION['login'])){
+    echo "<script>alert('please login first ! '); window.location.replace('form_login.php');</script>";
+}
 ?>
-<html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Shoes Cleaning Service</title>
-    <link rel="stylesheet" href="style1.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shclean.co</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <div class="container">
-        <div class="navbar">
-			<div class="logo">
-				<h1>Shoes Cleaning Service</h1>
-			</div>
-			<div class="menu">
-				<ul>
-					<!-- <li><a href="index.php">Home </a></li>
-					<li><a href="read_shoes.php">Data shoes </a></li>
-					<li><a href="read_pegawai.php">Data pegawai </a></li>
-					<li><a href="read_user_210032.php">Data Users </a></li> -->
+        <div class="header">
+            <div class="navbar">
+                    <img class="logo" src="assets/logo.png">
+                    <ul>
+                        <li class="list"><a href="index.php">Home</a></li>
+                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <?php } ?>
+                    </ul>
                     <?php
-                    // include "connection.php";
-                    // $query = "SELECT * FROM users_210066 WHERE userid_210066= '$_SESSION[userid]'";
-                    // $user = mysqli_query($db_connection, $query); 
-                    // $data = mysqli_fetch_assoc($user);
+                    include "connection.php";
+                    $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
+                    $user = mysqli_query($db_connection, $query); 
+                    $data = mysqli_fetch_assoc($user);
                     ?>
-                    <!-- <li>
-                        <a href="change_photo_210032.php">
-                        <img src="uploads/users/<?= $data['photo_210066']; ?>" class="profile">
-                        </a>
-                    </li> -->
-				</ul>
-			</div>
-		</div>
+                    <a href="change_photo.php">
+                        <img class="profile" src="upload/user/<?= $data['userphoto']; ?>">
+                    </a>
+                    
+            </div>
+        </div>
 
-        <div class="container-content">
-            <h3 style="padding-bottom: 10px; padding-left: 10px;">Pegawai List</h3>
-            
-            <p><a href="add_pegawai.php" class="btn-end">Add New Pegawai</a></p>
+        <div class="content">
+            <h1 class="title">Home</h1>
+            <br>
+
+        <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+        <div class="container-card-c">
+        <h2 class="title-back"><a href="index.php">Back</a></h2>
+        <br>
+        <p><a href="add_pegawai.php" class="btn-end">Add New Pegawai</a></p>
             <br>
             <table class="table-content">
                 <tr>
@@ -71,7 +76,7 @@
                     <td><?php echo $data['gender_pegawai']; ?></td>
                     <td><?=  $data['alamat_pegawai']; ?></td>
                     <td><?=  $data['phone_pegawai']; ?></td>
-                    <td><button class="action-btn"><img src="upload/pegawai/<?=$data['photo_pegawai']; ?>" widht="50" height="50"><br>
+                    <td><button class="action-btn"><img src="upload/pegawai/<?=$data['photo_pegawai']; ?>" widht="50" height="50" style="border-radius: 50%;"><br>
                     <a href="photo_pegawai.php?id=<?=$data['id_pegawai']?>">Change photo</a>
                 </td>
                     <td><p><a href="edit_pegawai.php?id=<?=$data['id_pegawai']?>" class="btn-end">Edit pegawai</a></p></td>
@@ -79,13 +84,32 @@
                 </tr>
                 <?php endforeach; ?>
             </table>
-            <br>
-            <p><a href="index.php" class="btn-end">Back</a></p>
+            </div>
+            <?php } ?>
+           
+
+           
+            
+        <br>
+        
+        
         </div>
-
+        
     </div>
-    
 
+    <footer>
+            <img class="logo-footer" src="assets/logo2.png">
+        
+            
+        <div class="follow">
+            <h1>FOLLOW US</h1>
+            <div class="sosmed">
+                <img src="assets/whatsapp (1).png" class="img-footer">
+                <img src="assets/instagram.png" class="img-footer">
+                <img src="assets/youtube (1).png" class="img-footer">
+            </div>
+            
+        </div>
+    </footer>
 </body>
-
 </html>
