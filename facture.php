@@ -53,12 +53,19 @@
     </tr>
     <tr><th colspan="6" align="right">Total : Rp. <?=number_format($total, 0, ".", ".");?></th></tr>
     </table> 
+<<<<<<< HEAD
     <br>
     <div>
 
         <a href="print.php?id_pelanggan=<?=$data[id]?>">print pdf</a>
     </div>
     
+=======
+    <p><a href="print.php?id_pelanggan=<?=$data[id]?>">print</a></p>
+    <!-- <script>
+        window.print();
+    </script> -->
+>>>>>>> 606f12ec07141e7830dea0d3912a4eb2b439d5d6
 </body>
 
 </html>
