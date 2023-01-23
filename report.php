@@ -1,46 +1,53 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
     echo "<script>alert('please login first ! '); window.location.replace('form_login.php');</script>";
 }
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Shclean</title>
-    <link rel="stylesheet" type="text/css" href="style1.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shclean.co</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="navbar">
-			<div class="logo">
-				<h1>Shclean</h1>
-			</div>
-			<div class="menu">
-				<ul>
-					<!-- <li><a href="index.php">Home </a></li>
-					<li><a href="read_pet.php">Data Pets </a></li>
-					<li><a href="read_doctors.php">Data Doctors </a></li>
-					<li><a href="read_user.php">Data Users </a></li> -->
+        <div class="header">
+            <div class="navbar">
+                    <img class="logo" src="assets/logo.png">
+                    <ul>
+                        <li class="list"><a href="index.php">Home</a></li>
+                        <li class="list"><a href="pricelist.php">Price List</a></li>
+                        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
+                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <?php } ?>
+                    </ul>
                     <?php
                     include "connection.php";
                     $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
                     $user = mysqli_query($db_connection, $query); 
                     $data = mysqli_fetch_assoc($user);
                     ?>
-                    <li>
-                        <!-- <a href="change_photo.php">
-                        <img src="upload/user/<?= $data['photo']; ?>" class="profile">
-                        </a> -->
-                    </li>
-				</ul>
-			</div>
-		</div>
+                    <a href="change_photo.php">
+                        <img class="profile" src="upload/user/<?= $data['userphoto']; ?>">
+                    </a>
+                    
+            </div>
+        </div>
 
-        <div class="container-content">
-            <h1>Monthiy Report</h1><hr>
+        <div class="content">
+            <h1 class="title">Home</h1>
             <br>
-            <?php 
+
+        <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+        <div class="container-card-c">
+        <h2 class="title-back"><a href="index.php">Back</a></h2>
+        <br>
+        <?php 
             $months = array('January','February','March','April','May','June','July','August','September','October','November','December');
             $year = date('Y');
             ?>
@@ -106,17 +113,38 @@ if(!isset($_SESSION['login'])){
                     <td><?=$data['harga_paket']?></td>
                 </tr>
                 <?php endforeach; ?>
-                <tr><th colspan="7" align="right">Total : Rp. <?=$total?></th></tr>
+                <tr><th colspan="10" align="right">Total : Rp. <?=$total?></th></tr>
                 <?php } else { ?>
                 <tr><td colspan="7" align="center">No record !</td></tr>
                 <?php } ?>
             </table>
             <?php } ?>
-            <br>
-            <p><a href="index.php" class="btn-end">Back to Home</a></p>
-        </div>
+            </div>
+            <?php } ?>
+           
 
+           
+            
+        <br>
+        
+        
+        </div>
+        
     </div>
-    
+
+    <footer>
+            <img class="logo-footer" src="assets/logo2.png">
+        
+            
+        <div class="follow">
+            <h1>FOLLOW US</h1>
+            <div class="sosmed">
+                <img src="assets/whatsapp (1).png" class="img-footer">
+                <img src="assets/instagram.png" class="img-footer">
+                <img src="assets/youtube (1).png" class="img-footer">
+            </div>
+            
+        </div>
+    </footer>
 </body>
 </html>

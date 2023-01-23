@@ -81,12 +81,12 @@ if(!isset($_SESSION['login'])){
                         </div>
                         <div class="input-box">
                           <span class="details">Paket</span>
-                          <input type="text" placeholder="Masukan Destinasi" name="nama_paket"value="<?=$data['nama_paket']?>" required>
+                          <input type="text" placeholder="Masukan Destinasi" name="nama_paket"value="<?=$data['nama_paket']?>" readonly>
                           </input>  
                         </div>
                         <div class="input-box">
                           <span class="details">Harga</span>
-                          <input type="number" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" required>
+                          <input type="number" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" readonly>
                         </div>
                         
                       </div>

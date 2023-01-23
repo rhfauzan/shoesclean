@@ -57,11 +57,14 @@ if(!isset($_SESSION['login'])){
                     <img src="assets/shoes.png" class="img-content">
                     <h2><?php echo $data['nama_paket']; ?></h2>
                     <p><?php echo $data['deskripsi_paket']; ?></p>
-                    <p><?php echo $data['harga_paket']; ?></p>
+                    <p>Rp. <?php echo $data['harga_paket']; ?></p>
                     </a>
                     <a class="btn-price" href="booking.php?id=<?php echo $data['id_paket']?>">
                         <img class="arrow-price" src="assets/arrow-right.svg" alt="">
                     </a>
+                    <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+                    <a href="delete_paket.php?id=<?=$data['id_paket']?>"onclick= "return confirm('Are you sure?')" class="btn-del">Delete</a>
+                    <?php } ?>
                 </div>
                 <?php endforeach;?> 
 
