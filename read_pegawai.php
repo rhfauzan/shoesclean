@@ -76,7 +76,7 @@ if(!isset($_SESSION['login'])){
                     <td><?php echo $data['gender_pegawai']; ?></td>
                     <td><?=  $data['alamat_pegawai']; ?></td>
                     <td><?=  $data['phone_pegawai']; ?></td>
-                    <td><button class="action-btn"><img src="upload/pegawai/<?=$data['photo_pegawai']; ?>" widht="50" height="50" style="border-radius: 50%;"><br>
+                    <td><img src="upload/pegawai/<?=$data['photo_pegawai']; ?>" widht="50" height="50" style="border-radius: 50%;"><br>
                     <a href="photo_pegawai.php?id=<?=$data['id_pegawai']?>">Change photo</a>
                 </td>
                     <td><p><a href="edit_pegawai.php?id=<?=$data['id_pegawai']?>" class="btn-end">Edit pegawai</a></p></td>

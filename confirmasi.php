@@ -23,8 +23,10 @@ if(!isset($_SESSION['login'])){
                         <li class="list"><a href="index.php">Home</a></li>
                         <li class="list"><a href="pricelist.php">Price List</a></li>
                         <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
-                        <li class="list"><a href="booking.php">Booking</a></li>
+                        <!-- <li class="list"><a href="booking.php">Booking</a></li> -->
+                        <li class="list"><a href="confirmasi.php">Konfirmasi</a></li>
                         <?php } ?>
+                        
                     </ul>
                     <?php
                     include "connection.php";
@@ -43,7 +45,7 @@ if(!isset($_SESSION['login'])){
             <h1 class="title">Home</h1>
             <br>
 
-        <?php if ($_SESSION['usertype'] == 'Admin') { ?>
+        <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>
         <div class="container-card-c">
         <h2 class="title-back"><a href="index.php">Back</a></h2>
         <table class="table-content">
@@ -58,13 +60,15 @@ if(!isset($_SESSION['login'])){
                     <th>Nama Pegawai</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th>status</th>
                     <th colspan="2"></th>
                 </tr>
                 <?php
             //call connection
             include "connection.php";
             //make a sql query
-            $query = "SELECT * FROM pelanggan AS p INNER JOIN paket AS pk ON p.id_paket=pk.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai GROUP BY p.id_pelanggan";
+            $query = "SELECT * FROM pelanggan AS p INNER JOIN paket AS pk ON p.id_paket=pk.id_paket
+                    INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE userid = '$_SESSION[userid]' GROUP BY p.id_pelanggan";
             //run query
             $pelanggan = mysqli_query($db_connection, $query);
 
@@ -86,12 +90,21 @@ if(!isset($_SESSION['login'])){
                     <td><?=  $data['nama_pegawai']; ?></td>
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
-                    <!-- <td><button class="action-btn">
-                            <p><a href="edit_pelanggan.php?id=<?=$data['id_pelanggan']?>">Sepatu Terambil</a></p>
-                        </button></td> -->
+                    <td><?=  $data['konfirmasi']; ?></td>
                     <td>
-                            <p><a class="btn-del" href="delete_pelanggan.php?id=<?=$data['id_pelanggan']?>"
-                                    onclick="return confirm('Are you sure?')">Delete</a></p>
+                    <?php if($data['konfirmasi'] == 'Belum Terambil') { ?>
+                            <p><a class="btn-end" href="status.php?id=<?=$data['id_pelanggan']?>">Sepatu Terambil</a></p>
+                    <?php } else { ?>
+                            <p><a class="btn-end-act">Sepatu Terambil</a></p>
+                    <?php } ?>
+                    </td>
+                    <td>
+                        <?php if($data['konfirmasi'] == 'Terambil') { ?>
+                            <p><a class="btn-done" href="delete_pelanggan.php?id=<?=$data['id_pelanggan']?>"
+                                    onclick="return confirm('Are you sure?')">Selesai</a></p>
+                        <?php } else { ?>
+                            <p>Belum Selesai</p>
+                        <?php } ?>
                         </td>
                 </tr>
                 <?php endforeach; ?>

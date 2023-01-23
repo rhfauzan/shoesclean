@@ -92,11 +92,21 @@ html{
     text-align: center;
 }
 
-.btn-end:hover{
-    
-    
-    transition-delay: .1s;
-    border-radius: 10px;
+.btn-end-act{
+  width: 70px;
+  height: 20px;
+  padding: 15px;
+  /* margin: 5px; */
+  text-decoration: none;
+  color: #000;
+  background-color: #d4d8da;
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-end:focus{
+  opacity: 50%;
 }
 
 .btn-del{
@@ -107,6 +117,19 @@ html{
   text-decoration: none;
   color: #fff;
   background-color: #da363e;
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-done{
+  width: 70px;
+  height: 20px;
+  padding: 15px;
+  /* margin: 5px; */
+  text-decoration: none;
+  color: #fff;
+  background-color: #10ac10;
   transition: .5s ease-in-out;
   border-radius: 10px;
   text-align: center;
@@ -365,9 +388,9 @@ html{
   width: 100%;
   background-color: #f5f5f5;
   border-radius: 20px;
-  padding: 20px 15px;
+  padding: 40px 15px;
   padding-bottom: 30px;
-  max-height: 450px;
+  max-height: 750px;
   text-align: center;
   margin: auto;
 }

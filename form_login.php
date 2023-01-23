@@ -1,62 +1,81 @@
-<!doctype html>
-<html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <tittle></tittle>
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-<link rel="stylesheet" href="css/style_login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <!-- <h3>Login</h3> -->
-    <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-		<h1 class="logo">Shoes Cleaning Service</h1><hr>
-			<form class="login" method="post" action="login.php">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" name="username" placeholder="User name">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" name="password" id="pass" placeholder="Password">
-				</div>
-				<button class="button login__submit" type="submit" name="login">
-					<span class="button__text"  >Log In</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>
-				<button class="button" type="submit" name="Register">
-					<a href="add_user.php" class="btn-end">Register</a>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<!-- <h3>log in via</h3> -->
-				<div class="social-icons">
-					<!-- <a href="#" class="social-login__icon fab fa-instagram"></a>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a> -->
-				</div>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form method="post" action="create_user.php">
+			<h1>Create Account</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> -->
+			<span>Make your account now</span>
+			<input type="text" placeholder="Username" name="username" required />
+			<input type="text" placeholder="Fullname" name="fullname" required>
+			<div class="radio-btn">
+				<input class="radio-btn" type="radio" name="usertype" value="Pelanggan" required>Pelanggan
+				<input class="radio-btn" type="radio" name="usertype" value="Admin" required>Admin
 			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
+			
+			<br>
+			<button type="submit" name="save" value="SAVE">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form method="post" action="login.php">
+			<h1>Sign in</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> -->
+			<span>Use your account</span>
+			<input type="text" name="username" placeholder="Username" />
+			<input type="password" name="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<button type="submit" name="login">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hai, There!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
 		</div>
 	</div>
 </div>
 
-    <script>
-        function show() {
-            var x = document.getElementById("pass");
-            if (x.type === "password") {
-                x.type = "text"
-            }   else {
-                x.type = "password";
-            }
-        }
-    </script>
+
 </body>
+<script>
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+</script>
 </html>

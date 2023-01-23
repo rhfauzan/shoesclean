@@ -72,8 +72,8 @@ if(!isset($_SESSION['login'])){
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $data['username']; ?></td>
                     <td>
-                        <img src="upload/user/<?php echo $data['userphoto']; ?>" width="50" height="50" ><br>
-                        <a href="change_photo.php?id=<?=$data['userid']?>" style="color: black; text-decoration: none;"> Change Photo</a>
+                        <img src="upload/user/<?php echo $data['userphoto']; ?>" width="50" height="50" style="border-radius: 50%;"><br>
+                        
                     </td>
                     <!-- <td><?php echo $data['password']; ?></td> -->
                     <td><?php echo $data['usertype']; ?></td>
