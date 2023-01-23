@@ -60,6 +60,7 @@ if(!isset($_SESSION['login'])){
                     <th>Nama Pegawai</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th>Metode Pembayaran</th>
                     <th>status</th>
                     <th colspan="2"></th>
                 </tr>
@@ -90,6 +91,7 @@ if(!isset($_SESSION['login'])){
                     <td><?=  $data['nama_pegawai']; ?></td>
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
+                    <td><?=  $data['metode_pembayaran']; ?></td>
                     <td><?=  $data['konfirmasi']; ?></td>
                     <td>
                     <?php if($data['konfirmasi'] == 'Belum Diterima') { ?>

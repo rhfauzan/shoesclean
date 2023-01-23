@@ -19,15 +19,16 @@ if(isset($_POST['save'])){
         $photo=$_FILES['photo_sepatu']['name'];
     
         // sql query INSERT INTO VALUES
-        $query = "INSERT INTO pelanggan (nama_pelanggan,merk_sepatu, type_sepatu, photo_sepatu, userid, id_paket, id_pegawai, alamat_pelanggan, phone_pelanggan)
-        VALUES ('$_POST[nama_pelanggan]','$_POST[merk_sepatu]','$_POST[type_sepatu]','$photo', '$_SESSION[userid]', '$_POST[id_paket]', '$random', '$_POST[alamat_pelanggan]','$_POST[phone_pelanggan]')";
+        $query = "INSERT INTO pelanggan (nama_pelanggan,merk_sepatu, type_sepatu, photo_sepatu, userid, id_paket, id_pegawai, alamat_pelanggan, phone_pelanggan, metode_pembayaran)
+        VALUES ('$_POST[nama_pelanggan]','$_POST[merk_sepatu]','$_POST[type_sepatu]','$photo', '$_SESSION[userid]', '$_POST[id_paket]', '$random', '$_POST[alamat_pelanggan]','$_POST[phone_pelanggan]','$_POST[metode_pembayaran]')";
     
         //run query
         $create = mysqli_query($db_connection, $query);
     
         if($create){
+            $data = mysqli_insert_id($db_connection);
             //echo"<p>Pet add successfully !</p>";
-            echo"<script> alert('add succesfully !'); </script>";
+            echo"<script> alert('add succesfully !'); window.location.replace('facture.php?id=".$data."'); </script>";
         }else{
             //echo"<p>Pet add failed !</p>";
             echo"<script> alert('add failed !'); </script>";

@@ -59,6 +59,7 @@ if(!isset($_SESSION['login'])){
                     <th>Nama Pegawai</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th>Metode Pembayaran</th>
                     <th>Status</th>
                     <th colspan="2"></th>
                 </tr>
@@ -89,6 +90,7 @@ if(!isset($_SESSION['login'])){
                     <td><?=  $data['nama_pegawai']; ?></td>
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
+                    <td><?=  $data['metode_pembayaran']; ?></td>
                     <td><?=  $data['konfirmasi']; ?></td>
                     <!-- <td><button class="action-btn">
                             <p><a href="edit_pelanggan.php?id=<?=$data['id_pelanggan']?>">Sepatu Terambil</a></p>

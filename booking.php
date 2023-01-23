@@ -91,14 +91,14 @@ if(!isset($_SESSION['login'])){
                         </div>
                         <div class="input-box">
                             <span class="details">Metode Pembayaran</span>
-                            <select name="type_sepatu" required>
+                            <select name="metode_pembayaran" required>
                                 <option value="">Choose</option>
-                                <option value="Sneakers">COD</option>
-                                <option value="Leathers">BRI</option>
-                                <option value="Leathers">OVO</option>
-                                <option value="Leathers">SHOPEEPAY</option>
-                                <option value="Leathers">GOPAY</option>
-                                <option value="Leathers">DANA</option>
+                                <option value="COD">COD</option>
+                                <option value="BRI">BRI</option>
+                                <option value="OVO">OVO</option>
+                                <option value="SHOPEEPAY">SHOPEEPAY</option>
+                                <option value="GOPAY">GOPAY</option>
+                                <option value="DANA">DANA</option>
                             </select>
                         </div>
                         
