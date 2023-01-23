@@ -48,9 +48,18 @@
         </div>
 
         <div class="content">
-            <h1 class="title">Profile</h1>
+            <?php
+                include "connection.php";
+                $query = "SELECT * FROM user WHERE userid= '$_SESSION[userid]'";
+                $user = mysqli_query($db_connection, $query); 
+                $data = mysqli_fetch_assoc($user);
+                ?>
+                    <div class="header-content" style="margin-left:50px; font-size: 2em ;">
+                        <h3>Welcome to shoes clean <?=$_SESSION['fullname'];?></h3>
+                        <h3 class="usertype">you are login as <?=$_SESSION['usertype'];?></h3>
+                    </div>    
             <br>
-            <h2 class="title">Change Photo</h2>
+            <h1 class="title">Profile</h1>
             <div class="container-card">
             <a href="logout.php" class="btn-end">Logout</a>
             <form method="POST" action="user_upload.php" enctype="multipart/form-data">

@@ -89,6 +89,18 @@ if(!isset($_SESSION['login'])){
                           <span class="details">Harga</span>
                           <input type="number" placeholder="Harga Paket" id="harga" name="harga_paket"value="<?=$data['harga_paket']?>" readonly>
                         </div>
+                        <div class="input-box">
+                            <span class="details">Metode Pembayaran</span>
+                            <select name="type_sepatu" required>
+                                <option value="">Choose</option>
+                                <option value="Sneakers">COD</option>
+                                <option value="Leathers">BRI</option>
+                                <option value="Leathers">OVO</option>
+                                <option value="Leathers">SHOPEEPAY</option>
+                                <option value="Leathers">GOPAY</option>
+                                <option value="Leathers">DANA</option>
+                            </select>
+                        </div>
                         
                       </div>
                       
@@ -96,6 +108,7 @@ if(!isset($_SESSION['login'])){
                         <input type="submit" name="save" value="Pesan">
                         <input type="hidden" name="photo" value="<?= $_SESSION['photo'] ?>" />
                         <input type="hidden" name="id_paket" value="<?=$data['id_paket']?>">
+                        <!-- <input type="hidden" name="userid" value="<?=$data['userid']?>"> -->
                       </div>
                     </form>
             </div>

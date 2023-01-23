@@ -50,6 +50,7 @@ if(!isset($_SESSION['login'])){
                 <tr class="theader">
                     <th>No</th>
                     <th>Nama Pelanggan</th>
+                    <th>ID User</th>
                     <th>Merk Sepatu</th>
                     <th>Type Sepatu</th>
                     <th>Photo Sepatu</th>
@@ -58,6 +59,7 @@ if(!isset($_SESSION['login'])){
                     <th>Nama Pegawai</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th>Status</th>
                     <th colspan="2"></th>
                 </tr>
                 <?php
@@ -76,16 +78,18 @@ if(!isset($_SESSION['login'])){
                     <td align="center">
                            <?=$data['nama_pelanggan']; ?>
                     </td>
+                    <td><?=  $data['userid']; ?></td>
                     <td><?=  $data['merk_sepatu']; ?></td>
                     <td><?=  $data['type_sepatu']; ?></td>
                     <td><img src="upload/pelanggan/<?=$data['photo_sepatu']; ?>" widht="50" height="50" style="border-radius: 50%;"><br>
-                    <a href="photo_sepatu.php?id=<?=$data['id_pelanggan']?>">Change photo</a>
+                    
                     </td>
                     <td><?=  $data['nama_paket']; ?></td>
                     <td><?=  $data['harga_paket']; ?></td>
                     <td><?=  $data['nama_pegawai']; ?></td>
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
+                    <td><?=  $data['konfirmasi']; ?></td>
                     <!-- <td><button class="action-btn">
                             <p><a href="edit_pelanggan.php?id=<?=$data['id_pelanggan']?>">Sepatu Terambil</a></p>
                         </button></td> -->

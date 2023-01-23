@@ -74,7 +74,7 @@ if(!isset($_SESSION['login'])){
             if(isset($_GET['year'])) {
                 include 'connection.php';
                 //$query="SELECT * FROM medicals";
-                    $query="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai FROM paket AS pk
+                    $query="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai, p.konfirmasi FROM paket AS pk
                             INNER JOIN pelanggan AS p ON pk.id_paket=p.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE MONTH(p.tanggal)='$_GET[month]' AND YEAR(p.tanggal)='$_GET[year]' GROUP BY p.id_pelanggan";
                 $report=mysqli_query($db_connection,$query);
             ?>
@@ -91,6 +91,7 @@ if(!isset($_SESSION['login'])){
                     <th>Nama Pegawai</th>
                     <th>Alamat</th>
                     <th>No.Tlp</th>
+                    <th>status</th>
                     <th>Harga Paket</th>
 
                 </tr>
@@ -110,10 +111,11 @@ if(!isset($_SESSION['login'])){
                     <td><?=$data['nama_pegawai']; ?></td>
                     <td><?=$data['alamat_pelanggan']?></td>
                     <td><?=$data['phone_pelanggan']?></td>
+                    <td><?=$data['konfirmasi']?></td>
                     <td><?=$data['harga_paket']?></td>
                 </tr>
                 <?php endforeach; ?>
-                <tr><th colspan="10" align="right">Total : Rp. <?=$total?></th></tr>
+                <tr><th colspan="11" align="right">Total : Rp. <?=$total?></th></tr>
                 <?php } else { ?>
                 <tr><td colspan="7" align="center">No record !</td></tr>
                 <?php } ?>

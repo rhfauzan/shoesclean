@@ -68,7 +68,7 @@ if(!isset($_SESSION['login'])){
             include "connection.php";
             //make a sql query
             $query = "SELECT * FROM pelanggan AS p INNER JOIN paket AS pk ON p.id_paket=pk.id_paket
-                    INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE userid = '$_SESSION[userid]' GROUP BY p.id_pelanggan";
+                    INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE userid = '$_SESSION[userid]' AND p.status = 1 GROUP BY p.id_pelanggan";
             //run query
             $pelanggan = mysqli_query($db_connection, $query);
 
@@ -92,15 +92,15 @@ if(!isset($_SESSION['login'])){
                     <td><?=  $data['phone_pelanggan']; ?></td>
                     <td><?=  $data['konfirmasi']; ?></td>
                     <td>
-                    <?php if($data['konfirmasi'] == 'Belum Terambil') { ?>
-                            <p><a class="btn-end" href="status.php?id=<?=$data['id_pelanggan']?>">Sepatu Terambil</a></p>
+                    <?php if($data['konfirmasi'] == 'Belum Diterima') { ?>
+                            <p><a class="btn-end" href="status.php?id=<?=$data['id_pelanggan']?>">Sepatu Diterima</a></p>
                     <?php } else { ?>
                             <p><a class="btn-end-act">Sepatu Terambil</a></p>
                     <?php } ?>
                     </td>
                     <td>
-                        <?php if($data['konfirmasi'] == 'Terambil') { ?>
-                            <p><a class="btn-done" href="delete_pelanggan.php?id=<?=$data['id_pelanggan']?>"
+                        <?php if($data['konfirmasi'] == 'Diterima') { ?>
+                            <p><a class="btn-done" href="status.php?id=<?=$data['id_pelanggan']?>"
                                     onclick="return confirm('Are you sure?')">Selesai</a></p>
                         <?php } else { ?>
                             <p>Belum Selesai</p>

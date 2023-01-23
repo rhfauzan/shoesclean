@@ -4,8 +4,8 @@ include "connection.php";
 $query = "SELECT konfirmasi FROM pelanggan WHERE id_pelanggan = '$_GET[id]'";
 $result = mysqli_query($db_connection, $query);
 $data = mysqli_fetch_assoc($result);
-if($data['konfirmasi'] == 'Belum Terambil'){
-    $query = "UPDATE pelanggan SET konfirmasi = 'Terambil' WHERE id_pelanggan = '$_GET[id]'";
+if($data['konfirmasi'] == 'Belum Diterima'){
+    $query = "UPDATE pelanggan SET konfirmasi = 'Diterima' WHERE id_pelanggan = '$_GET[id]'";
     $result = mysqli_query($db_connection, $query);
     // if($result){
     //     echo"<script> alert('Sepatu Terambil !'); </script>";
@@ -13,9 +13,9 @@ if($data['konfirmasi'] == 'Belum Terambil'){
     //     echo"<script> alert('Gagal !'); </script>";
     // }
 }
-if($data['konfirmasi'] == 'Terambil'){
-    // $query = "UPDATE pelanggan SET konfirmasi = 'Belum Terambil' WHERE id_pelanggan = '$_GET[id]'";
-    // $result = mysqli_query($db_connection, $query);
+if($data['konfirmasi'] == 'Diterima'){
+    $query = "UPDATE pelanggan SET status = 0 WHERE id_pelanggan = '$_GET[id]'";
+    $result = mysqli_query($db_connection, $query);
     // if($result){
     //     echo"<script> alert('Sepatu Terambil !'); </script>";
     // }else{
