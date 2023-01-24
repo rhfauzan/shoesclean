@@ -11,6 +11,9 @@
 		
 		// //extract data
 		// $data=mysqli_fetch_assoc($user);
+        if($_SESSION['usertype'] != 'Admin') {
+            echo "<script>alert('Access forbidden !');window.location.replace('index.php');</script>";
+        }
 	?>
 
 <!DOCTYPE html>

@@ -4,6 +4,9 @@ session_start();
 if(!isset($_SESSION['login'])){
     echo "<script>alert('please login first ! '); window.location.replace('form_login.php');</script>";
 }
+if($_SESSION['usertype'] != 'Admin') {
+    echo "<script>alert('Access forbidden !');window.location.replace('index.php');</script>";
+}
 ?>
 
 <!DOCTYPE html>
