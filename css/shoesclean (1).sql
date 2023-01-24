@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jan 2023 pada 19.15
+-- Waktu pembuatan: 24 Jan 2023 pada 06.02
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.1
 
@@ -64,7 +64,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama_pegawai`, `gender_pegawai`, `alamat_pegawai`, `phone_pegawai`, `photo_pegawai`) VALUES
-(11, 'Ridwan', 'Male', ' kircon', ' 0087689', ' default.png'),
+(11, 'Ridwan', 'Male', ' kircondet', ' 0087689', 'data.jpeg'),
 (12, 'jihun', ' Female', ' kiara', ' 8759870', 'default.png'),
 (13, 'Maul', 'Male', ' kiara', ' 8759870', 'default.png'),
 (14, 'ay', ' Male', ' kiara', ' 8759870', 'default.png');
@@ -97,14 +97,16 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `merk_sepatu`, `type_sepatu`, `photo_sepatu`, `userid`, `id_paket`, `id_pegawai`, `tanggal`, `alamat_pelanggan`, `phone_pelanggan`, `metode_pembayaran`, `konfirmasi`, `status`) VALUES
-(2, 'Selfandy', 'Nike', 'Sneakers', 'whatsapp.png', 7, 1, 11, '2023-01-23 16:14:15', 'Jakarta', '0828973426', '', 'Diterima', 0),
-(3, 'Selfandy', 'Nike', 'Sneakers', 'whatsapp.png', 11, 1, 11, '2023-01-23 14:33:24', 'Jakarta', '0828973426', '', 'Diterima', 0),
-(8, 'roup', 'aerostreet', 'Sports', 'whatsapp.png', 11, 6, 13, '2023-01-23 13:05:40', 'bojong kenyot', '0812446363', '', 'Belum Diterima', 1),
-(15, 'sel', 'Abibas', 'Sneakers', 'data.jpeg', 7, 1, 14, '2023-01-23 17:06:45', 'cikudapateuh', '0987667865', '', 'Diterima', 0),
-(16, 'Selfandy', 'Ventela', 'Sneakers', 'data.jpeg', 7, 1, 12, '2023-01-23 17:16:08', 'Soreang', '0932487426', '', 'Diterima', 0),
-(17, 'roup', 'Ventela', 'Leathers', 'data.jpeg', 7, 1, 14, '2023-01-23 17:13:31', 'cikudapateuh', '0987667865', '', 'Diterima', 0),
-(18, 'sel', 'Ventela', 'Sneakers', 'data.jpeg', 7, 5, 13, '2023-01-23 17:16:02', 'cikudapateuh', '0987667865', 'Leathers', 'Diterima', 0),
-(19, 'roup', 'Ventela', 'Sneakers', 'data.jpeg', 7, 4, 12, '2023-01-23 17:16:35', 'cikudapateuh', '0987667865', 'OVO', 'Belum Diterima', 1);
+(19, 'roup', 'Ventela', 'Sneakers', 'data.jpeg', 7, 4, 12, '2023-01-23 17:16:35', 'cikudapateuh', '0987667865', 'OVO', 'Belum Diterima', 1),
+(20, 'bima', 'adidas', 'Sports', 'shoes.png', 11, 4, 12, '2023-01-24 02:39:17', 'cikudapateuh', '0987667865', 'DANA', 'Belum Diterima', 1),
+(21, 'sel', 'Ventela', 'Sneakers', 'data.jpeg', 11, 6, 12, '2023-01-24 02:43:30', 'Soreang', '0932487426', 'GOPAY', 'Belum Diterima', 1),
+(22, 'ryan', 'Nike', 'Sports', 'shoes.png', 11, 5, 13, '2023-01-24 03:10:11', 'majalaya', '0987667865', 'GOPAY', 'Belum Diterima', 1),
+(23, 'ryan', 'Nike', 'Sports', 'shoes.png', 11, 5, 13, '2023-01-24 03:10:47', 'majalaya', '0987667865', 'GOPAY', 'Belum Diterima', 1),
+(24, 'Selfandy', 'Ventela', 'Sneakers', 'data.jpeg', 11, 5, 12, '2023-01-24 03:11:27', 'majalaya', '0987667865', 'COD', 'Belum Diterima', 1),
+(25, 'Ryan', 'Nike', 'Sneakers', 'data.jpeg', 11, 4, 14, '2023-01-24 03:14:26', 'majalaya', '0987667865', 'SHOPEEPAY', 'Belum Diterima', 1),
+(26, 'raka', 'Ventela', 'Leathers', 'shoes.png', 7, 5, 13, '2023-01-24 04:10:58', 'kircon', '0987667865', 'BRI', 'Belum Diterima', 1),
+(27, 'ryan', 'Nike', 'Sneakers', 'shoes.png', 7, 6, 11, '2023-01-24 04:07:35', 'majalaya', '0987667865', 'COD', 'Diterima', 0),
+(28, 'fauzan', 'adidas', 'Sports', 'data.jpeg', 13, 1, 11, '2023-01-24 04:25:05', 'cikadut', '087663769', 'BRI', 'Diterima', 0);
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,9 @@ INSERT INTO `user` (`userid`, `username`, `password_user`, `usertype`, `fullname
 (9, 'test', '$2y$10$A3ZDA5XF2eyCNCIzxiyeL.08AU7411EhslgeO1iThoDEnzh8vat.i', 'Admin', ' managertest', '𝐒𝐨𝐡𝐞𝐞 𝐢𝐜𝐨𝐧.jpeg'),
 (10, 'bismilah', '$2y$10$otNvKW9ZP3Yc7mOA4Q4J2OenYzXMe9l/AWA..rUIqUCFFV74fOmDq', 'Admin', ' dasd', 'default.png'),
 (11, 'kids', '$2y$10$zlxyhXJEwYAvenJxk6F76ukUm438rdQ/b0TgpNZTH9VijwOapQo1y', 'Pelanggan', ' fandy', 'default.png'),
-(12, 'Selfandy', '$2y$10$xjegkkIPeaARmPyd3M.KMO/ZKVVwLhcziSrRCvF/Sw4HxiCPHIQkG', 'Admin', 'Selfandy Fajar', 'default.png');
+(12, 'Selfandy', '$2y$10$xjegkkIPeaARmPyd3M.KMO/ZKVVwLhcziSrRCvF/Sw4HxiCPHIQkG', 'Admin', 'Selfandy Fajar', 'default.png'),
+(13, 'ojan', '$2y$10$WHsQMaPeJwyueItXIuyGF.DvIwFL6cMu/2JXTAE/ur8dgbK/.mx0m', 'Pelanggan', 'memet codet', 'licensed-image (1).jpeg'),
+(14, 'fandy', '$2y$10$4Aov7hyB7POwsiDqnXH8qeH47ydXHZACc2Yurs6VNKDkyd.6Dwyse', 'Admin', 'fandy fajar', 'images (1).jpg');
 
 --
 -- Indexes for dumped tables
@@ -171,25 +175,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pegawai` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pelanggan` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

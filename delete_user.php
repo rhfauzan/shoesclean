@@ -19,5 +19,5 @@ if(isset($_GET['id'])){
 
 }
 ?>
-<!-- <p><a href="read_pet_210066.php">Back To Pets List</a></p> -->
+
 <script>window.location.replace("read_user.php");</script>
