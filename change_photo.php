@@ -32,6 +32,7 @@
                         <li class="list"><a href="pricelist.php">Price List</a></li>
                         <?php if ($_SESSION['usertype'] == 'Pelanggan') { ?>  
                         <!-- <li class="list"><a href="booking.php">Booking</a></li> -->
+                        <li class="list"><a href="confirmasi.php">Konfirmasi</a></li>
                         <?php } ?>
                     </ul>
                     <?php

@@ -28,7 +28,7 @@ if(isset($_POST['save'])){
         if($create){
             $data = mysqli_insert_id($db_connection);
             //echo"<p>Pet add successfully !</p>";
-            echo"<script> alert('add succesfully !'); window.location.replace('facture.php?id=".$data."'); </script>";
+            echo"<script> alert('add succesfully !'); window.location.replace('print.php?id=".$data."'); </script>";
         }else{
             //echo"<p>Pet add failed !</p>";
             echo"<script> alert('add failed !'); </script>";
@@ -42,4 +42,4 @@ if(isset($_POST['save'])){
     }
     ?>
    
-    <script>window.location.replace("facture.php");</script>
+    <script>window.location.replace("print.php");</script>

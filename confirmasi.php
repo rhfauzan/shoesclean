@@ -93,7 +93,7 @@ if(!isset($_SESSION['login'])){
                     <td><?=  $data['alamat_pelanggan']; ?></td>
                     <td><?=  $data['phone_pelanggan']; ?></td>
                     <td><?=  $data['metode_pembayaran']; ?></td>
-                    <td><p><a href="print.php?id=<?=$data['id_pelanggan']?>" class="btn-end">Print</a></p></td>
+                    <td><p><a href="print.php?id=<?=$data['id_pelanggan']?>" target="_blank" class="btn-end">Print</a></p></td>
                     <td><?=  $data['konfirmasi']; ?></td>
                     <td>
                     <?php if($data['konfirmasi'] == 'Belum Diterima') { ?>
