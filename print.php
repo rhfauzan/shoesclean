@@ -16,10 +16,10 @@
 
         $data1=mysqli_fetch_assoc($id);
 
-     $query="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.id_paket, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai, p.konfirmasi FROM paket AS pk
-     INNER JOIN pelanggan AS p ON pk.id_paket=p.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE pk.id_paket=p.id_paket AND p.id_pelanggan = '$_GET[id]' GRoUP BY p.id_pelanggan ";
-     $faktur =mysqli_query($db_connection,$query);
-     $data=mysqli_fetch_assoc($faktur);
+        $query="SELECT p.nama_pelanggan, p.merk_sepatu, p.type_sepatu, p.photo_sepatu, pk.id_paket, pk.nama_paket, pk.harga_paket, p.alamat_pelanggan, p.phone_pelanggan, pg.nama_pegawai, p.konfirmasi FROM paket AS pk
+        INNER JOIN pelanggan AS p ON pk.id_paket=p.id_paket INNER JOIN pegawai AS pg ON p.id_pegawai=pg.id_pegawai WHERE pk.id_paket=p.id_paket AND p.id_pelanggan = '$_GET[id]' GRoUP BY p.id_pelanggan ";
+        $faktur =mysqli_query($db_connection,$query);
+        $data=mysqli_fetch_assoc($faktur);
     ?>
     
     <p>No. Faktur               : <?=$data1['id_pelanggan']?></p>

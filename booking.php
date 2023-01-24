@@ -105,7 +105,7 @@ if(!isset($_SESSION['login'])){
                       </div>
                       
                       <div class="button">
-                        <input type="submit" name="save" value="Pesan">
+                        <input target="_blank" type="submit" name="save" value="Pesan">
                         <input type="hidden" name="photo" value="<?= $_SESSION['photo'] ?>" />
                         <input type="hidden" name="id_paket" value="<?=$data['id_paket']?>">
                         <!-- <input type="hidden" name="userid" value="<?=$data['userid']?>"> -->
